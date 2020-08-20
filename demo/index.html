@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <title>idPlease | Demo</title>
+  </head>
+  <body>
+    <div class="container-fluid bg-light">
+      <div class="row">
+        <div class="col-md-3 p-0 bg-secondary">
+          <div class="py-5">
+            <button
+              id="vistor-details"
+              class="btn btn-secondary btn-lg btn-block dark-hover-left-border"
+            >
+              Visitor Details
+            </button>
+          </div>
+        </div>
+        <div class="col-md-9 bg-light p-5">
+          <div
+            class="w-100 d-flex flex-column justify-content-center align-items-center"
+          >
+            <div>
+              <strong class="h2">Stage</strong>
+            </div>
+            <div id="stdout" class="bg-white w-75 rounded p-2 my-5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+    crossorigin="anonymous"
+  ></script>
+  <script src="bundle/index.js"></script>
+</html>
