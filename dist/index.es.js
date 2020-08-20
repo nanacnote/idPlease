@@ -4,17 +4,15 @@
  */
 var idPlease = /** @class */ (function () {
     function idPlease(options) {
+        if (options === void 0) { options = undefined; }
         this.options = options;
-        this.detectENV = function () {
-            console.log(options);
-        };
     }
     /**
      * Returns the entire vistor information collected
      * @returns JSON
      */
     idPlease.prototype._raw = function () {
-        return "entire visitor data";
+        return this.options;
     };
     return idPlease;
 }());

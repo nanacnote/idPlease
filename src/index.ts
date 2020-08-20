@@ -21,11 +21,8 @@ export class idPlease {
   /**contains the options parameter object */
   private options: TParams["options"];
 
-  constructor(options: TParams["options"]) {
+  constructor(options: TParams["options"] = undefined) {
     this.options = options;
-    this.detectENV = () => {
-      console.log(options);
-    };
   }
 
   /**
@@ -33,6 +30,6 @@ export class idPlease {
    * @returns JSON
    */
   public _raw() {
-    return "entire visitor data";
+    return this.options;
   }
 }

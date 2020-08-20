@@ -13,11 +13,11 @@ export declare class idPlease {
     private detectENV;
     /**contains the options parameter object */
     private options;
-    constructor(options: TParams["options"]);
+    constructor(options?: TParams["options"]);
     /**
      * Returns the entire vistor information collected
      * @returns JSON
      */
-    _raw(): string;
+    _raw(): string | undefined;
 }
 export {};
