@@ -6,19 +6,44 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * Main class object for idPlease library
  * @param options determines how to interact with the API
  */
-var idPlease = /** @class */ (function () {
-    function idPlease(options) {
+var _ID = /** @class */ (function () {
+    function _ID(options) {
         if (options === void 0) { options = undefined; }
         this.options = options;
+        this.detectENV = typeof window === "object";
     }
     /**
-     * Returns the entire vistor information collected
+     * pulls in all information from visitor on load
+     * @private method
      * @returns JSON
      */
-    idPlease.prototype._raw = function () {
-        return this.options;
+    _ID.prototype._request = function () {
+        if (this.detectENV) {
+            var _data = {
+                _navigator: window.navigator,
+                _cookies: document.cookie,
+            };
+            return _data;
+        }
     };
-    return idPlease;
+    /**
+     * Returns the "COMPLETE" vistor information credentials
+     * @returns JSON
+     */
+    _ID.prototype.showAll = function () {
+        var _a;
+        if (((_a = this.options) === null || _a === void 0 ? void 0 : _a.type) === "COMPLETE") {
+            var res = this._request();
+            return JSON.stringify({
+                os: res === null || res === void 0 ? void 0 : res._navigator.appVersion,
+                browser: res === null || res === void 0 ? void 0 : res._navigator.appName,
+                language: res === null || res === void 0 ? void 0 : res._navigator.language,
+            });
+        }
+    };
+    return _ID;
 }());
+
+var idPlease = new _ID({ type: "COMPLETE" });
 
 exports.idPlease = idPlease;

@@ -1,9 +1,0 @@
-#stdout {
-  height: 550px;
-  overflow: auto;
-}
-
-.dark-hover-left-border:hover {
-  border-left: solid 5px lightskyblue !important;
-  border-radius: 0 !important;
-}
