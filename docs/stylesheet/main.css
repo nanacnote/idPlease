@@ -1,0 +1,38 @@
+.btn-no-decoration {
+  text-align: start;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 5px;
+  font: inherit;
+  cursor: pointer;
+  outline: non;
+}
+.btn-no-decoration:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 0.25rem;
+}
+.btn-no-decoration:focus {
+  outline: inherit;
+}
+
+#navbar-xs,
+#navbar-md {
+  min-height: 65px;
+  background: goldenrod;
+}
+
+#navbar-xs #navbar-xs-button {
+  height: 65px;
+}
+#stage,
+#sider {
+  min-height: 500px;
+}
+
+#sider {
+  position: sticky;
+  top: 0;
+}
+
+/*# sourceMappingURL=main.css.map */

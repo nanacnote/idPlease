@@ -3,45 +3,153 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico?v=2" />
+    <!-- Boostrap CSS only -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="stylesheet/main.css" />
+
     <title>idPlease | Demo</title>
   </head>
   <body>
     <div class="container-fluid bg-light">
-      <div class="row">
-        <div class="col-md-3 p-0 bg-secondary">
-          <div class="py-5">
-            <button
-              id="vistor-details"
-              class="btn btn-secondary btn-lg btn-block dark-hover-left-border"
-            >
-              Visitor Details
-            </button>
+      <div class="row bg-secondary text-white border-primary">
+        <div id="navbar-md" class="d-none d-sm-block col w-100">
+          <div
+            class="d-flex justify-content-between align-items-center h-100 px-4"
+          >
+            <div class="h2"><strong>idPlease.JS</strong></div>
+            <div class="">
+              <div class="container">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <button id="docs-btn" class="btn-no-decoration ml-1 px-3">
+                      <h6><strong>Docs</strong></h6>
+                    </button>
+                  </div>
+                  <div class="col-xs-12">
+                    <button
+                      id="support-btn"
+                      class="btn-no-decoration ml-1 px-3"
+                    >
+                      <h6><strong>Support</strong></h6>
+                    </button>
+                  </div>
+                  <div class="col-xs-12">
+                    <button
+                      id="contribute-btn"
+                      class="btn-no-decoration ml-1 px-3"
+                    >
+                      <h6><strong>Contribute</strong></h6>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-md-9 bg-light p-5">
+        <div id="navbar-xs" class="d-block d-sm-none col w-100 p-0">
+          <div class="d-flex flex-column justify-content-center h-100">
+            <div id="navbar-xs-button" class="px-5 d-flex align-items-center">
+              <button class="btn-no-decoration">
+                <img src="public/icons/menu-icon.svg" alt="menu" />
+              </button>
+            </div>
+            <div
+              id="navbar-xs-drawer"
+              class="bg-light text-dark px-5 w-100 d-none"
+            >
+              <div class="d-flex flex-column">
+                <div>
+                  <button id="docs-btn" class="btn-no-decoration">
+                    <strong>Docs</strong>
+                  </button>
+                </div>
+                <div>
+                  <button id="support-btn" class="btn-no-decoration">
+                    <strong>Support</strong>
+                  </button>
+                </div>
+                <div>
+                  <button id="contribute-btn" class="btn-no-decoration">
+                    <strong>Contribute</strong>
+                  </button>
+                </div>
+                <div class="border-bottom my-4"></div>
+                <div id="insert-sider-content"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div
+            id="sider"
+            class="my-5 p-5 border-right border-primary d-none d-md-block"
+          >
+            <div id="sider-content">
+              <div>
+                <div class="px-1 pb-3"><strong>GENERAL</strong></div>
+                <button
+                  id="getting-started-btn"
+                  class="btn-lg btn-block btn-no-decoration"
+                >
+                  Getting Started
+                </button>
+                <button
+                  id="change-logs-btn"
+                  class="btn-lg btn-block btn-no-decoration"
+                >
+                  Change Logs
+                </button>
+                <button
+                  id="examples-btn"
+                  class="btn-lg btn-block btn-no-decoration"
+                >
+                  Examples
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
           <div
             class="w-100 d-flex flex-column justify-content-center align-items-center"
           >
-            <div>
-              <strong class="h2">Stage</strong>
-            </div>
-            <div id="stdout" class="bg-white w-75 rounded p-2 my-5"></div>
+            <div id="stage" class="bg-white w-100 rounded p-5 my-5 mr-2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3 d-flex justify-content-center align-items-center">
+          <div>
+            footer
           </div>
         </div>
       </div>
     </div>
   </body>
+
+  <!-- JS, Popper.js, and jQuery -->
   <script
     src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"
   ></script>
-  <script src="bundle/index.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"
+  ></script>
+  <script src="bundle/bundle.js"></script>
 </html>
