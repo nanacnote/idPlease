@@ -77,12 +77,15 @@ $(document).ready(function () {
   $("#navbar-xs-button").on("click", function (e) {
     $("#navbar-xs-drawer").hasClass("d-none") ? $("#navbar-xs-drawer").removeClass("d-none") : $("#navbar-xs-drawer").addClass("d-none"); // clone sidebar into popup menu
 
-    var siderContent = $("#sider-content").clone();
+    var siderContent = $("#sider-content").clone(true);
     $("#insert-sider-content").empty().html(siderContent);
-  }); // handle examples button click
+  }); // inject getting started content on load
 
-  $("#examples-btn").on("click", function (e) {
-    $("#stage").text(_index.idPlease.showAll());
+  $("#stage").load("content/gettingStarted.html"); // inject examples content on button click
+
+  $(".examples-btn").on("click", function (e) {
+    // $("#stage").text(idPlease.showAll());
+    $("#stage").load("content/example.html");
   });
 });
 

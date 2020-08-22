@@ -8,12 +8,16 @@ $(document).ready(function () {
       ? $("#navbar-xs-drawer").removeClass("d-none")
       : $("#navbar-xs-drawer").addClass("d-none");
     // clone sidebar into popup menu
-    let siderContent = $("#sider-content").clone();
+    let siderContent = $("#sider-content").clone(true);
     $("#insert-sider-content").empty().html(siderContent);
   });
 
-  // handle examples button click
-  $("#examples-btn").on("click", function (e) {
-    $("#stage").text(idPlease.showAll());
+  // inject getting started content on load
+  $("#stage").load("content/gettingStarted.html");
+
+  // inject examples content on button click
+  $(".examples-btn").on("click", function (e) {
+    // $("#stage").text(idPlease.showAll());
+    $("#stage").load("content/example.html");
   });
 });
