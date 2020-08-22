@@ -5,8 +5,8 @@
 var _ID = /** @class */ (function () {
     function _ID(options) {
         if (options === void 0) { options = undefined; }
-        this.options = options;
-        this.detectENV = typeof window === "object";
+        this._options = options;
+        this._detectENV = typeof window === "object";
     }
     /**
      * pulls in all information from visitor on load
@@ -14,7 +14,7 @@ var _ID = /** @class */ (function () {
      * @returns JSON
      */
     _ID.prototype._request = function () {
-        if (this.detectENV) {
+        if (this._detectENV) {
             var _data = {
                 _navigator: window.navigator,
                 _cookies: document.cookie,
@@ -24,17 +24,18 @@ var _ID = /** @class */ (function () {
     };
     /**
      * Returns the "COMPLETE" vistor information credentials
-     * @returns JSON
+     * @returns object
      */
-    _ID.prototype.showAll = function () {
+    _ID.prototype.getAll = function () {
         var _a;
-        if (((_a = this.options) === null || _a === void 0 ? void 0 : _a.type) === "COMPLETE") {
+        if (((_a = this._options) === null || _a === void 0 ? void 0 : _a.type) === "COMPLETE") {
             var res = this._request();
-            return JSON.stringify({
+            return {
                 os: res === null || res === void 0 ? void 0 : res._navigator.appVersion,
                 browser: res === null || res === void 0 ? void 0 : res._navigator.appName,
                 language: res === null || res === void 0 ? void 0 : res._navigator.language,
-            });
+                test: (res === null || res === void 0 ? void 0 : res._navigator).keyboard,
+            };
         }
     };
     return _ID;

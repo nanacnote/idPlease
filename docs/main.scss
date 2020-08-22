@@ -1,45 +1,76 @@
+// general variables
+$small-font: 0.85rem;
+$menuBar-height: 60px;
+
 body {
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-.btn-no-decoration {
-  text-align: start;
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 5px;
-  font: inherit;
-  cursor: pointer;
-  outline: non;
-  &:hover {
-    background: rgba(0, 0, 0, 0.05);
+  font-family: "Roboto Slab", serif;
+  font-size: 0.9em;
+
+  .highlight {
+    display: block;
+    overflow-x: auto;
+    color: #333;
+    background: #f8f8f8;
+    margin-bottom: 1.25rem;
     border-radius: 0.25rem;
+    pre {
+      margin: 0;
+      padding: 0;
+    }
   }
-  &:focus {
-    outline: inherit;
+
+  .selected-left {
+    border-left: solid 3px #cbcbcb !important;
+    border-radius: 0;
   }
-}
 
-#navbar-xs,
-#navbar-md {
-  min-height: 65px;
-  background: goldenrod;
-}
-
-#navbar-xs {
-  #navbar-xs-button {
-    height: 65px;
+  .btn-no-decoration {
+    text-align: start;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 5px;
+    font: inherit;
+    cursor: pointer;
+    outline: non;
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 0.25rem;
+    }
+    &:focus {
+      outline: inherit;
+    }
   }
-  #navbar-xs-drawer {
+
+  #navbar-xs,
+  #navbar-md {
+    min-height: $menuBar-height;
+    background: goldenrod;
   }
-}
 
-#stage,
-#sider {
-  min-height: 500px;
-}
+  #navbar-md {
+    height: $menuBar-height;
+  }
 
-#sider {
-  position: sticky;
-  top: 0;
+  #navbar-xs {
+    #navbar-xs-button {
+      height: $menuBar-height;
+    }
+  }
+
+  #stage,
+  #sider {
+    min-height: 500px;
+    #stage-edit-link {
+      font-size: $small-font;
+    }
+  }
+
+  #footer {
+    font-size: $small-font;
+  }
+
+  #logo {
+    cursor: pointer;
+  }
 }

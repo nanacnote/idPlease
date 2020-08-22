@@ -1,8 +1,24 @@
 body {
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  font-family: "Roboto Slab", serif;
+  font-size: 0.9em;
 }
-
-.btn-no-decoration {
+body .highlight {
+  display: block;
+  overflow-x: auto;
+  color: #333;
+  background: #f8f8f8;
+  margin-bottom: 1.25rem;
+  border-radius: 0.25rem;
+}
+body .highlight pre {
+  margin: 0;
+  padding: 0;
+}
+body .selected-left {
+  border-left: solid 3px #cbcbcb !important;
+  border-radius: 0;
+}
+body .btn-no-decoration {
   text-align: start;
   background: none;
   color: inherit;
@@ -12,31 +28,37 @@ body {
   cursor: pointer;
   outline: non;
 }
-.btn-no-decoration:hover {
+body .btn-no-decoration:hover {
   background: rgba(0, 0, 0, 0.05);
   border-radius: 0.25rem;
 }
-.btn-no-decoration:focus {
+body .btn-no-decoration:focus {
   outline: inherit;
 }
-
-#navbar-xs,
-#navbar-md {
-  min-height: 65px;
+body #navbar-xs,
+body #navbar-md {
+  min-height: 60px;
   background: goldenrod;
 }
-
-#navbar-xs #navbar-xs-button {
-  height: 65px;
+body #navbar-md {
+  height: 60px;
 }
-#stage,
-#sider {
+body #navbar-xs #navbar-xs-button {
+  height: 60px;
+}
+body #stage,
+body #sider {
   min-height: 500px;
 }
-
-#sider {
-  position: sticky;
-  top: 0;
+body #stage #stage-edit-link,
+body #sider #stage-edit-link {
+  font-size: 0.85rem;
+}
+body #footer {
+  font-size: 0.85rem;
+}
+body #logo {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */

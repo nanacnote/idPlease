@@ -1,9 +1,17 @@
+<!-- DOCUMENTATION FOR EDITING THE CODEBASE-->
+<!-- For a button that injects content add a prop ie. data-content-ref="name of the related file in the content folder [use camelCase]" to the button tag -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="./favicon.ico?v=2" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
+    <!-- Google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <!-- Boostrap CSS only -->
     <link
       rel="stylesheet"
@@ -13,111 +21,144 @@
     />
     <link rel="stylesheet" href="stylesheet/main.css" />
 
-    <title>idPlease | Demo</title>
+    <title>idPlease.JS | Javascript library</title>
   </head>
   <body>
     <div class="container-fluid bg-light">
-      <div class="row bg-secondary text-white border-primary">
-        <div id="navbar-md" class="d-none d-md-block col w-100">
-          <div
-            class="d-flex justify-content-between align-items-center h-100 px-5"
-          >
-            <div class="h2"><strong>idPlease.JS</strong></div>
-            <div class="">
-              <div class="container">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <button class="docs-btn btn-no-decoration ml-1 px-3">
-                      <h6><strong>Docs</strong></h6>
-                    </button>
-                  </div>
-                  <div class="col-xs-12">
-                    <button class="support-btn btn-no-decoration ml-1 px-3">
-                      <h6><strong>Support</strong></h6>
-                    </button>
-                  </div>
-                  <div class="col-xs-12">
-                    <button class="contribute-btn btn-no-decoration ml-1 px-3">
-                      <h6><strong>Contribute</strong></h6>
-                    </button>
+      <div class="row">
+        <!-- navbar for medium size devices and up -->
+        <div class="col p-0 text-white">
+          <div id="navbar-md" class="d-none d-md-block">
+            <div
+              class="d-flex justify-content-between align-items-center px-5 h-100"
+            >
+              <div id="logo" class="h2" onclick="window.location=('/')">
+                <strong>idPlease.JS</strong>
+              </div>
+              <div class="">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <button class="docs-btn btn-no-decoration ml-1 px-3">
+                        <h6><strong>Docs</strong></h6>
+                      </button>
+                    </div>
+                    <div class="col-xs-12">
+                      <button class="support-btn btn-no-decoration ml-1 px-3">
+                        <h6><strong>Support</strong></h6>
+                      </button>
+                    </div>
+                    <div class="col-xs-12">
+                      <button
+                        class="contribute-btn btn-no-decoration ml-1 px-3"
+                      >
+                        <h6><strong>Contribute</strong></h6>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div id="navbar-xs" class="d-block d-md-none col w-100 p-0">
-          <div class="d-flex flex-column justify-content-center h-100">
-            <div id="navbar-xs-button" class="px-5 d-flex align-items-center">
-              <button class="btn-no-decoration">
-                <img src="public/icons/menu-icon.svg" alt="menu" />
-              </button>
-            </div>
-            <div
-              id="navbar-xs-drawer"
-              class="bg-light text-dark px-5 w-100 d-none"
-            >
-              <div class="d-flex flex-column">
-                <div>
-                  <button class="docs-btn btn-no-decoration">
-                    <strong>Docs</strong>
-                  </button>
+          <!-- navbar for small size devices -->
+          <div id="navbar-xs" class="d-block d-md-none">
+            <div class="d-flex flex-column justify-content-center">
+              <div id="navbar-xs-button" class="px-5 d-flex align-items-center">
+                <button class="btn-no-decoration">
+                  <img src="public/icons/menu-icon.svg" alt="menu" />
+                </button>
+              </div>
+              <div id="navbar-xs-drawer" class="px-5 bg-light text-dark d-none">
+                <div class="d-flex flex-column">
+                  <div>
+                    <button class="docs-btn btn-no-decoration">
+                      <strong>Docs</strong>
+                    </button>
+                  </div>
+                  <div>
+                    <button class="support-btn btn-no-decoration">
+                      <strong>Support</strong>
+                    </button>
+                  </div>
+                  <div>
+                    <button class="contribute-btn btn-no-decoration">
+                      <strong>Contribute</strong>
+                    </button>
+                  </div>
+                  <div class="border-bottom my-4"></div>
+                  <div id="insert-sider-content"></div>
                 </div>
-                <div>
-                  <button class="support-btn btn-no-decoration">
-                    <strong>Support</strong>
-                  </button>
-                </div>
-                <div>
-                  <button class="contribute-btn btn-no-decoration">
-                    <strong>Contribute</strong>
-                  </button>
-                </div>
-                <div class="border-bottom my-4"></div>
-                <div id="insert-sider-content"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-3">
-          <div
-            id="sider"
-            class="my-5 p-5 border-right border-primary d-none d-md-block"
-          >
-            <div id="sider-content">
-              <div>
+        <!-- sider menu section -->
+        <div class="col-md-3 p-0">
+          <div id="sider" class="d-none d-md-block">
+            <div class="sticky-top border-primary border-right my-5 p-5 h-100">
+              <div id="sider-content">
                 <div class="px-1 pb-3"><strong>GENERAL</strong></div>
                 <button
                   class="getting-started-btn btn-lg btn-block btn-no-decoration"
+                  data-content-ref="gettingStarted"
                 >
                   Getting Started
                 </button>
                 <button
                   class="change-logs-btn btn-lg btn-block btn-no-decoration"
+                  data-content-ref="changeLogs"
                 >
                   Change Logs
                 </button>
-                <button class="examples-btn btn-lg btn-block btn-no-decoration">
+                <button
+                  class="examples-btn btn-lg btn-block btn-no-decoration"
+                  data-content-ref="example"
+                >
                   Examples
                 </button>
               </div>
             </div>
           </div>
         </div>
+        <!-- main content section containing stage for injecting dynamic content -->
         <div class="col-md-9">
           <div
             class="w-100 d-flex flex-column justify-content-center align-items-center"
           >
-            <div id="stage" class="bg-white w-100 rounded p-5 my-5 mr-2"></div>
+            <div class="px-2 w-100">
+              <div id="stage" class="bg-white rounded py-5 px-3 my-5">
+                <div id="stage-content"></div>
+                <div id="stage-edit-link" class="text-right mt-5">
+                  <a href="#" referrerpolicy="no-referrer">
+                    Edit this page on GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col mb-3 d-flex justify-content-center align-items-center">
-          <div>
-            footer
+        <!-- footer section -->
+        <div class="col">
+          <div
+            id="footer"
+            class="mb-3 d-flex flex-column justify-content-center align-items-center"
+          >
+            <div>
+              idPlease.JS by
+              <a href="http://adjei-bohyen.me" referrerpolicy="no-referrer">
+                Owusu K.
+              </a>
+            </div>
+            <div>
+              CC0 1.0 Universal © open-source library | 2020
+            </div>
+            <div>
+              adjeibohyen@hotmail.co.uk
+            </div>
           </div>
         </div>
       </div>
