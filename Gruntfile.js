@@ -12,6 +12,7 @@ module.exports = function (grunt) {
         "docs/main.js",
         "docs/main.scss",
         "docs/content/**.*",
+        "docs/scripts/**.*",
       ],
       tasks: ["browserify", "uglify", "sass"],
     },
@@ -29,6 +30,7 @@ module.exports = function (grunt) {
     },
     browserify: {
       options: {
+        banner: `/*! idPlease.JS by Owusu K. CC0 1.0 Universal © open-source library | 2020 adjeibohyen@hotmail.co.uk <%= grunt.template.today("yyyy-mm-dd") %> */ `,
         transform: [["babelify", { presets: ["@babel/preset-env"] }]],
       },
       build: {
@@ -38,8 +40,7 @@ module.exports = function (grunt) {
     },
     uglify: {
       options: {
-        banner:
-          '/*! idPlease Docs <%= grunt.template.today("yyyy-mm-dd") %> */ ',
+        banner: `/*! idPlease.JS by Owusu K. CC0 1.0 Universal © open-source library | 2020 adjeibohyen@hotmail.co.uk <%= grunt.template.today("yyyy-mm-dd") %> */ `,
       },
       build: {
         src: "docs/bundle/bundle.js",
@@ -61,9 +62,9 @@ module.exports = function (grunt) {
   // Load the plugins
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-connect");
-  grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-browserify");
   grunt.loadNpmTasks("grunt-babel");
+  grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-sass");
 
   // Default task(s).

@@ -1,7 +1,7 @@
 <div id="example-content" class="container-fluid">
   <div class="row">
     <div class="col">
-      <h2><strong>Examples</strong></h2>
+      <h3><strong>Examples</strong></h3>
       <p>Some example uses cases</p>
     </div>
   </div>
@@ -9,7 +9,10 @@
     <div class="col">
       <ul>
         <li>
-          <button class="btn-no-decoration text-primary">
+          <button
+            class="btn-no-decoration text-primary"
+            data-content-ref="getAllJSON"
+          >
             Get a JSON of all information expose on the navigator API
           </button>
         </li>
@@ -24,6 +27,12 @@
           </button>
         </li>
       </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div id="example-stage-highlight" class="highlight"></div>
+      <div id="example-stage"></div>
     </div>
   </div>
 </div>
