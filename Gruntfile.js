@@ -11,6 +11,7 @@ module.exports = function (grunt) {
         "docs/index.html",
         "docs/main.js",
         "docs/main.scss",
+        "docs/content/**.*",
       ],
       tasks: ["browserify", "uglify", "sass"],
     },
