@@ -46,12 +46,10 @@ $(document).ready(function () {
   });
 
   // DEVELOPMENT CODE -- comment out before deployment
+  // $("#stage-content").load("content/examples.html");
   // setTimeout(() => {
+  //   $("#example-stage-highlight").empty().append(getAll());
   // }, 500);
-  $("#stage-content").load("content/example.html");
-  setTimeout(() => {
-    $("#example-stage-highlight").empty().append(getAll());
-  }, 500);
 });
 
 // important global variables
