@@ -38,7 +38,7 @@ $(document).ready(function () {
     const btnCurrentRef = $(this).data("content-ref");
     switch (btnCurrentRef) {
       case "fullList":
-        $("#example-stage-highlight").empty().append(getAll()); // hydrate by importing and calling the example.getAll script
+        $("#examples-stage-highlight").empty().append(getAll()); // hydrate by importing and calling the examples.getAll script
         break;
       default:
         break;
@@ -46,10 +46,10 @@ $(document).ready(function () {
   });
 
   // DEVELOPMENT CODE -- comment out before deployment
-  // $("#stage-content").load("content/examples.html");
-  // setTimeout(() => {
-  //   $("#example-stage-highlight").empty().append(getAll());
-  // }, 500);
+  $("#stage-content").load("content/examples.html");
+  setTimeout(() => {
+    $("#examples-stage-highlight").empty().append(getAll());
+  }, 500);
 });
 
 // important global variables
