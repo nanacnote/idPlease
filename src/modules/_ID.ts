@@ -1,3 +1,5 @@
+import { userAgentParser } from "./userAgentParser";
+
 /**
  *  Parameters type declarations
  */
@@ -43,12 +45,14 @@ export class _ID {
    */
   public getAll() {
     if (this._options?.type === "COMPLETE") {
-      const res = this._request();
+      const res = this._request(); // request header information from visitor
+      const userAgent = userAgentParser(res?._navigator.userAgent); // pass userAgent string to the parser
+
       return {
-        os: res?._navigator.appVersion,
-        browser: res?._navigator.appName,
-        language: res?._navigator.language,
-        test: res?._navigator.userAgent.indexOf("Chrome"),
+        os: userAgent?.osName,
+        osVersion: userAgent?.osVersion,
+        browserName: userAgent?.browserName,
+        browserVersion: userAgent?.browserVersion,
       };
     }
   }

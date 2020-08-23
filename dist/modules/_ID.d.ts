@@ -28,8 +28,8 @@ export declare class _ID {
      */
     getAll(): {
         os: string | undefined;
-        browser: string | undefined;
-        language: string | undefined;
-        test: number | undefined;
+        osVersion: string | undefined;
+        browserName: string | undefined;
+        browserVersion: string | undefined;
     } | undefined;
 }

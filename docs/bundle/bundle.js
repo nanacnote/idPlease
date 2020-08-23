@@ -1,5 +1,14 @@
 /*! idPlease.JS by Owusu K. CC0 1.0 Universal © open-source library | 2020 adjeibohyen@hotmail.co.uk 2020-08-23 */ 
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+/**
+ * idplease
+ * v1.0.0
+ * CC0-1.0
+ * by Owusu K
+ * contributors 
+ * A Javascript library to make getting website visitor's information easy and simple no dependencies and can run both server side and client side.
+ * https://github.com/nanacnote/idPlease#readme
+ */
 'use strict';
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -8,9 +17,33 @@ Object.defineProperty(exports, '__esModule', {
   value: true
 });
 /**
+ * This function parses a userAgent string exposed on window.navigator.userAgent
+ * @param string
+ * @return object
+ *
+ * @example
+ *      userAgentParser("Mozilla/5.0 (X11; CrOS x86_64 11895.118.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.159 Safari/537.36")
+ *      // return Chrome 74 on Chrome OS 11895
+ */
+
+var userAgentParser = function userAgentParser(param) {
+  if (param) {
+    console.log(param);
+    return {
+      osName: "",
+      osVersion: "",
+      browserName: "",
+      browserVersion: ""
+    };
+  }
+
+  return undefined;
+};
+/**
  * Main class object for idPlease library
  * @param options determines how to interact with the API
  */
+
 
 var _ID =
 /** @class */
@@ -49,13 +82,16 @@ function () {
     var _a;
 
     if (((_a = this._options) === null || _a === void 0 ? void 0 : _a.type) === "COMPLETE") {
-      var res = this._request();
+      var res = this._request(); // request header information from visitor
+
+
+      var userAgent = userAgentParser(res === null || res === void 0 ? void 0 : res._navigator.userAgent); // pass userAgent string to the parser
 
       return {
-        os: res === null || res === void 0 ? void 0 : res._navigator.appVersion,
-        browser: res === null || res === void 0 ? void 0 : res._navigator.appName,
-        language: res === null || res === void 0 ? void 0 : res._navigator.language,
-        test: res === null || res === void 0 ? void 0 : res._navigator.userAgent.indexOf("Chrome")
+        os: userAgent === null || userAgent === void 0 ? void 0 : userAgent.osName,
+        osVersion: userAgent === null || userAgent === void 0 ? void 0 : userAgent.osVersion,
+        browserName: userAgent === null || userAgent === void 0 ? void 0 : userAgent.browserName,
+        browserVersion: userAgent === null || userAgent === void 0 ? void 0 : userAgent.browserVersion
       };
     }
   };
@@ -109,10 +145,11 @@ $(document).ready(function () {
         break;
     }
   }); // DEVELOPMENT CODE -- comment out before deployment
-  // $("#stage-content").load("content/examples.html");
-  // setTimeout(() => {
-  //   $("#examples-stage-highlight").empty().append(getAll());
-  // }, 500);
+
+  $("#stage-content").load("content/examples.html");
+  setTimeout(function () {
+    $("#examples-stage-highlight").empty().append((0, _examples.getAll)());
+  }, 500);
 }); // important global variables
 
 var ROOT_URL = "https://github.com/nanacnote";
@@ -128,9 +165,9 @@ exports.getAll = void 0;
 var _index = require("../../dist/index");
 
 var getAll = function getAll() {
-  var html = "\n    <div class=\"p-5\">\n      <h6>Stringify JSON of all data received during handshake:</h6>\n      <div>" + Object.entries(_index.idPlease.getAll()).map(function (e) {
-    return "<div><span>".concat(e[0], "</span> ---> ").concat(e[1], "</div>");
-  }) + "\n      </div>\n    </div>\n  ";
+  var html = "\n    <div class=\"p-5\">\n      <h6>Stringify JSON of all data received during handshake:</h6>\n      <div>\n      <table class=\"table table-bordered\">\n        <thead>\n          <tr>\n            <th scope=\"col\">#</th>\n            <th scope=\"col\">key</th>\n            <th scope=\"col\">value</th>\n          </tr>\n        </thead>\n        <tbody>\n      " + Object.entries(_index.idPlease.getAll()).map(function (e, i) {
+    return "<tr>\n          <th scope=\"row\">".concat(i + 1, "</th>\n          <td>").concat(e[0].replace(/([a-z])([A-Z])/g, "$1 $2").toLocaleUpperCase(), "</td>\n          <td>").concat(e[1], "</td>\n        </tr>");
+  }).join(" ") + "</tbody>\n        </table>\n      </div>\n    </div>\n  ";
   return html;
 };
 
