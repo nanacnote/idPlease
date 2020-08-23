@@ -30,6 +30,6 @@ export declare class _ID {
         os: string | undefined;
         browser: string | undefined;
         language: string | undefined;
-        test: any;
+        test: number | undefined;
     } | undefined;
 }

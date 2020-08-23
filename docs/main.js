@@ -1,14 +1,14 @@
-import { getAllJSON } from "./scripts/example.getAllJSON";
+import { getAll } from "./scripts/examples.getAll";
 
 // handle all js interactions on document ready state
 $(document).ready(function () {
   // responsive navbar handler
-  $("#navbar-xs-button").on("click", function (e) {
+  $("#navbar-xs-button").on("click", function () {
     $("#navbar-xs-drawer").hasClass("d-none")
       ? $("#navbar-xs-drawer").removeClass("d-none")
       : $("#navbar-xs-drawer").addClass("d-none");
     // clone sidebar into popup menu
-    let siderContent = $("#sider-content").clone(true);
+    const siderContent = $("#sider-content").clone(true);
     $("#insert-sider-content").empty().append(siderContent);
   });
 
@@ -21,7 +21,7 @@ $(document).ready(function () {
   $('button[data-content-ref="gettingStarted"]').addClass("selected-left");
 
   // capture only sider button clicks and inject content onto stage
-  $("#sider-content").delegate(".btn-no-decoration", "click", function (e) {
+  $("#sider-content").delegate(".btn-no-decoration", "click", function () {
     const btnCurrentRef = $(this).data("content-ref");
     $("#stage-content").load(`content/${btnCurrentRef}.html`);
     $("#stage-edit-link>a").attr(
@@ -30,15 +30,15 @@ $(document).ready(function () {
     );
     // adds selected right border stylin
     $(".btn-no-decoration").removeClass("selected-left");
-    $(this).addClass("selected-left");
+    $(`button[data-content-ref=${btnCurrentRef}]`).addClass("selected-left");
   });
 
   // capture only stage button clicks and hydrate content as appropriate
   $("#stage").delegate(".btn-no-decoration", "click", function (e) {
     const btnCurrentRef = $(this).data("content-ref");
     switch (btnCurrentRef) {
-      case "getAllJSON":
-        $("#example-stage-highlight").empty().html(getAllJSON()); // hydrate by importing and calling the example.getAllJSON sript
+      case "fullList":
+        $("#example-stage-highlight").empty().append(getAll()); // hydrate by importing and calling the example.getAll script
         break;
       default:
         break;
@@ -46,9 +46,11 @@ $(document).ready(function () {
   });
 
   // DEVELOPMENT CODE -- comment out before deployment
+  // setTimeout(() => {
+  // }, 500);
   $("#stage-content").load("content/example.html");
   setTimeout(() => {
-    $("#example-stage-highlight").empty().html(getAllJSON());
+    $("#example-stage-highlight").empty().append(getAll());
   }, 500);
 });
 

@@ -2,7 +2,8 @@
   "env": {
     "browser": true,
     "es2020": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "extends": "eslint:recommended",
   "parser": "@typescript-eslint/parser",
@@ -10,6 +11,11 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
+  "overrides": [
+    {
+      "files": ["**/*.spec.ts"]
+    }
+  ],
   "plugins": ["@typescript-eslint"],
   "rules": {}
 }

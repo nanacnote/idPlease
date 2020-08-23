@@ -3,6 +3,7 @@ body {
   font-size: 0.9em;
 }
 body .highlight {
+  position: relative;
   display: block;
   overflow-x: auto;
   color: #333;
@@ -17,6 +18,7 @@ body .highlight pre {
 body .selected-left {
   border-left: solid 3px #cbcbcb !important;
   border-radius: 0;
+  color: #cbcbcb !important;
 }
 body .btn-no-decoration {
   text-align: start;

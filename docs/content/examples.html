@@ -1,4 +1,7 @@
-<div id="example-content" class="container-fluid">
+<!-- to add a button which hydrates the stage with content, the data-content-ref prop on the button tag must be set 
+  with a value useable in the main js files switch statement handling button clicks in the stage. -->
+
+<div id="examples-content" class="container-fluid">
   <div class="row">
     <div class="col">
       <h3><strong>Examples</strong></h3>
@@ -11,9 +14,9 @@
         <li>
           <button
             class="btn-no-decoration text-primary"
-            data-content-ref="getAllJSON"
+            data-content-ref="fullList"
           >
-            Get a JSON of all information expose on the navigator API
+            Get a full list of all information expose on the navigator API
           </button>
         </li>
         <li>
@@ -31,8 +34,8 @@
   </div>
   <div class="row">
     <div class="col">
-      <div id="example-stage-highlight" class="highlight"></div>
-      <div id="example-stage"></div>
+      <div id="examples-stage-highlight" class="highlight"></div>
+      <div id="examples-stage"></div>
     </div>
   </div>
 </div>

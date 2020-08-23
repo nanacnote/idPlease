@@ -1,27 +1,47 @@
 // general variables
 $small-font: 0.85rem;
 $menuBar-height: 60px;
+// colors variable
+$selected-item-border: #cbcbcb;
+$highlight-header: #ededed;
+$highlight-body: #f8f8f8;
 
 body {
   font-family: "Roboto Slab", serif;
   font-size: 0.9em;
 
   .highlight {
+    position: relative;
     display: block;
     overflow-x: auto;
     color: #333;
-    background: #f8f8f8;
+    background: $highlight-body;
     margin-bottom: 1.25rem;
     border-radius: 0.25rem;
     pre {
       margin: 0;
       padding: 0;
     }
+    // &::before {
+    //   content: "copy";
+    //   display: flex;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 35px;
+    //   background: $highlight-header;
+    //   justify-content: flex-end;
+    //   align-items: center;
+    //   padding: 0 5%;
+    //   font-weight: bolder;
+    // }
   }
 
   .selected-left {
-    border-left: solid 3px #cbcbcb !important;
+    border-left: solid 3px $selected-item-border !important;
     border-radius: 0;
+    color: $selected-item-border !important;
   }
 
   .btn-no-decoration {

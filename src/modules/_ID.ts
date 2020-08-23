@@ -48,7 +48,7 @@ export class _ID {
         os: res?._navigator.appVersion,
         browser: res?._navigator.appName,
         language: res?._navigator.language,
-        test: (<any>res?._navigator).keyboard,
+        test: res?._navigator.userAgent.indexOf("Chrome"),
       };
     }
   }
