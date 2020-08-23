@@ -1,5 +1,6 @@
 // rollup.config.js
 import typescript from "rollup-plugin-typescript2";
+import banner from "rollup-plugin-banner";
 import pkg from "./package.json";
 
 export default {
@@ -22,5 +23,8 @@ export default {
     typescript({
       typescript: require("typescript"),
     }),
+    banner(
+      "<%= pkg.name %>\nv<%= pkg.version %>\n<%= pkg.license %>\nby <%= pkg.author %>\ncontributors <%= pkg.contributors %>\n<%= pkg.description %>\n<%= pkg.homepage %>"
+    ),
   ],
 };

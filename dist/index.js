@@ -1,6 +1,38 @@
+/**
+ * idplease
+ * v1.0.0
+ * CC0-1.0
+ * by Owusu K
+ * contributors 
+ * A Javascript library to make getting website visitor's information easy and simple no dependencies and can run both server side and client side.
+ * https://github.com/nanacnote/idPlease#readme
+ */
+
 'use strict';
 
 Object.defineProperty(exports, '__esModule', { value: true });
+
+/**
+ * This function parses a userAgent string exposed on window.navigator.userAgent
+ * @param string
+ * @return object
+ *
+ * @example
+ *      userAgentParser("Mozilla/5.0 (X11; CrOS x86_64 11895.118.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.159 Safari/537.36")
+ *      // return Chrome 74 on Chrome OS 11895
+ */
+var userAgentParser = function (param) {
+    if (param) {
+        console.log(param);
+        return {
+            osName: "",
+            osVersion: "",
+            browserName: "",
+            browserVersion: "",
+        };
+    }
+    return undefined;
+};
 
 /**
  * Main class object for idPlease library
@@ -33,12 +65,13 @@ var _ID = /** @class */ (function () {
     _ID.prototype.getAll = function () {
         var _a;
         if (((_a = this._options) === null || _a === void 0 ? void 0 : _a.type) === "COMPLETE") {
-            var res = this._request();
+            var res = this._request(); // request header information from visitor
+            var userAgent = userAgentParser(res === null || res === void 0 ? void 0 : res._navigator.userAgent); // pass userAgent string to the parser
             return {
-                os: res === null || res === void 0 ? void 0 : res._navigator.appVersion,
-                browser: res === null || res === void 0 ? void 0 : res._navigator.appName,
-                language: res === null || res === void 0 ? void 0 : res._navigator.language,
-                test: res === null || res === void 0 ? void 0 : res._navigator.userAgent.indexOf("Chrome"),
+                os: userAgent === null || userAgent === void 0 ? void 0 : userAgent.osName,
+                osVersion: userAgent === null || userAgent === void 0 ? void 0 : userAgent.osVersion,
+                browserName: userAgent === null || userAgent === void 0 ? void 0 : userAgent.browserName,
+                browserVersion: userAgent === null || userAgent === void 0 ? void 0 : userAgent.browserVersion,
             };
         }
     };
