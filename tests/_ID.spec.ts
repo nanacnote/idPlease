@@ -1,5 +1,5 @@
 import { _ID } from "../src/modules/_ID";
 
-test("should ", () => {
-  expect(2 + 2).toBe(4);
+test("should return instance of _ID", () => {
+  expect(new _ID({ type: "COMPLETE" }).getAll()).toReturn();
 });

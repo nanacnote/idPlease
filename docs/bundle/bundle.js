@@ -55,7 +55,7 @@ function () {
         os: res === null || res === void 0 ? void 0 : res._navigator.appVersion,
         browser: res === null || res === void 0 ? void 0 : res._navigator.appName,
         language: res === null || res === void 0 ? void 0 : res._navigator.language,
-        test: (res === null || res === void 0 ? void 0 : res._navigator).keyboard
+        test: res === null || res === void 0 ? void 0 : res._navigator.userAgent.indexOf("Chrome")
       };
     }
   };
@@ -101,18 +101,21 @@ $(document).ready(function () {
 
     switch (btnCurrentRef) {
       case "fullList":
-        $("#example-stage-highlight").empty().html((0, _examples.getAll)()); // hydrate by importing and calling the example.getAllJSON sript
+        $("#example-stage-highlight").empty().append((0, _examples.getAll)()); // hydrate by importing and calling the example.getAll script
 
         break;
 
       default:
         break;
     }
-  }); // // DEVELOPMENT CODE -- comment out before deployment
-  // $("#stage-content").load("content/example.html");
+  }); // DEVELOPMENT CODE -- comment out before deployment
   // setTimeout(() => {
-  //   $("#example-stage-highlight").empty().html(getAllJSON());
   // }, 500);
+
+  $("#stage-content").load("content/example.html");
+  setTimeout(function () {
+    $("#example-stage-highlight").empty().append((0, _examples.getAll)());
+  }, 500);
 }); // important global variables
 
 var ROOT_URL = "https://github.com/nanacnote";

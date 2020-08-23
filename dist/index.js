@@ -38,7 +38,7 @@ var _ID = /** @class */ (function () {
                 os: res === null || res === void 0 ? void 0 : res._navigator.appVersion,
                 browser: res === null || res === void 0 ? void 0 : res._navigator.appName,
                 language: res === null || res === void 0 ? void 0 : res._navigator.language,
-                test: (res === null || res === void 0 ? void 0 : res._navigator).keyboard,
+                test: res === null || res === void 0 ? void 0 : res._navigator.userAgent.indexOf("Chrome"),
             };
         }
     };

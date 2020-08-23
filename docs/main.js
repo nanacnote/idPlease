@@ -38,18 +38,20 @@ $(document).ready(function () {
     const btnCurrentRef = $(this).data("content-ref");
     switch (btnCurrentRef) {
       case "fullList":
-        $("#example-stage-highlight").empty().html(getAll()); // hydrate by importing and calling the example.getAllJSON sript
+        $("#example-stage-highlight").empty().append(getAll()); // hydrate by importing and calling the example.getAll script
         break;
       default:
         break;
     }
   });
 
-  // // DEVELOPMENT CODE -- comment out before deployment
-  // $("#stage-content").load("content/example.html");
+  // DEVELOPMENT CODE -- comment out before deployment
   // setTimeout(() => {
-  //   $("#example-stage-highlight").empty().html(getAllJSON());
   // }, 500);
+  $("#stage-content").load("content/example.html");
+  setTimeout(() => {
+    $("#example-stage-highlight").empty().append(getAll());
+  }, 500);
 });
 
 // important global variables

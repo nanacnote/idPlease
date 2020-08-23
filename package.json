@@ -7,11 +7,12 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "lint": "eslint src --ext ts --ext tsx --ext js --fix",
+    "lint": "eslint src/modules --ext ts --ext tsx --ext js --fix",
     "build": "rollup -c",
     "watch": "rollup -cw",
     "grunt-watch": "grunt watch",
-    "grunt-connect": "grunt connect"
+    "grunt-connect": "grunt connect",
+    "dev": "rollup -cw & grunt watch & grunt connect"
   },
   "repository": {
     "type": "git",
