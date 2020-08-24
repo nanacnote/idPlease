@@ -18,9 +18,21 @@
  *      // return Chrome 74 on Chrome OS 11895
  */
 var userAgentParser = function (param) {
+    var _a;
     if (param) {
-        console.log(param);
+        // remove all elements in parenthesis an group in a separate array
+        var removeParen = param
+            .replace(/\(([^()]+)\)/g, "")
+            .split(" ")
+            .filter(function (e) { return e.length > 1; });
+        var groupParen = param.match(/\(([^()]+)\)/g);
+        var osDeviceString = groupParen
+            ? groupParen[0].replace("(", "").replace(")", "").split(";")
+            : [];
+        console.log(osDeviceString);
+        console.log(removeParen);
         return {
+            device: (_a = osDeviceString[0]) !== null && _a !== void 0 ? _a : "",
             osName: "",
             osVersion: "",
             browserName: "",
@@ -64,6 +76,7 @@ var _ID = /** @class */ (function () {
             var res = this._request(); // request header information from visitor
             var userAgent = userAgentParser(res === null || res === void 0 ? void 0 : res._navigator.userAgent); // pass userAgent string to the parser
             return {
+                device: userAgent === null || userAgent === void 0 ? void 0 : userAgent.device,
                 os: userAgent === null || userAgent === void 0 ? void 0 : userAgent.osName,
                 osVersion: userAgent === null || userAgent === void 0 ? void 0 : userAgent.osVersion,
                 browserName: userAgent === null || userAgent === void 0 ? void 0 : userAgent.browserName,

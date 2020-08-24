@@ -1,4 +1,4 @@
-/*! idPlease.JS by Owusu K. CC0 1.0 Universal © open-source library | 2020 adjeibohyen@hotmail.co.uk 2020-08-23 */ 
+/*! idPlease.JS by Owusu K. CC0 1.0 Universal © open-source library | 2020 adjeibohyen@hotmail.co.uk 2020-08-24 */ 
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 /**
  * idplease
@@ -27,9 +27,19 @@ Object.defineProperty(exports, '__esModule', {
  */
 
 var userAgentParser = function userAgentParser(param) {
+  var _a;
+
   if (param) {
-    console.log(param);
+    // remove all elements in parenthesis an group in a separate array
+    var removeParen = param.replace(/\(([^()]+)\)/g, "").split(" ").filter(function (e) {
+      return e.length > 1;
+    });
+    var groupParen = param.match(/\(([^()]+)\)/g);
+    var osDeviceString = groupParen ? groupParen[0].replace("(", "").replace(")", "").split(";") : [];
+    console.log(osDeviceString);
+    console.log(removeParen);
     return {
+      device: (_a = osDeviceString[0]) !== null && _a !== void 0 ? _a : "",
       osName: "",
       osVersion: "",
       browserName: "",
@@ -88,6 +98,7 @@ function () {
       var userAgent = userAgentParser(res === null || res === void 0 ? void 0 : res._navigator.userAgent); // pass userAgent string to the parser
 
       return {
+        device: userAgent === null || userAgent === void 0 ? void 0 : userAgent.device,
         os: userAgent === null || userAgent === void 0 ? void 0 : userAgent.osName,
         osVersion: userAgent === null || userAgent === void 0 ? void 0 : userAgent.osVersion,
         browserName: userAgent === null || userAgent === void 0 ? void 0 : userAgent.browserName,

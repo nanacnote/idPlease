@@ -27,6 +27,7 @@ export declare class _ID {
      * @returns object
      */
     getAll(): {
+        device: string | undefined;
         os: string | undefined;
         osVersion: string | undefined;
         browserName: string | undefined;

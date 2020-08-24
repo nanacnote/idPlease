@@ -49,6 +49,7 @@ export class _ID {
       const userAgent = userAgentParser(res?._navigator.userAgent); // pass userAgent string to the parser
 
       return {
+        device: userAgent?.device,
         os: userAgent?.osName,
         osVersion: userAgent?.osVersion,
         browserName: userAgent?.browserName,
