@@ -9,8 +9,19 @@
  */
 export const userAgentParser = (param: string | undefined) => {
   if (param) {
-    console.log(param);
+    // remove all elements in parenthesis an group in a separate array
+    const removeParen = param
+      .replace(/\(([^()]+)\)/g, "")
+      .split(" ")
+      .filter((e) => e.length > 1);
+    const groupParen = param.match(/\(([^()]+)\)/g);
+    const osDeviceString = groupParen
+      ? groupParen[0].replace("(", "").replace(")", "").split(";")
+      : [];
+    console.log(osDeviceString);
+    console.log(removeParen);
     return {
+      device: osDeviceString[0] ?? "",
       osName: "",
       osVersion: "",
       browserName: "",

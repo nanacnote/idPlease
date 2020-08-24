@@ -8,6 +8,7 @@
  *      // return Chrome 74 on Chrome OS 11895
  */
 export declare const userAgentParser: (param: string | undefined) => {
+    device: string;
     osName: string;
     osVersion: string;
     browserName: string;
